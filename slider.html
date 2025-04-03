@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Image Slider</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f4f4f4; }
+        .slider-container { width: 100%; overflow: hidden; position: relative; }
+        .slider { display: flex; width: 300%; transition: transform 0.5s ease-in-out; }
+        .slider img { width: 100%; height: auto; }
+    </style>
+</head>
+<body>
+
+<div class="slider-container">
+    <div class="slider">
+        <img src="https://raw.githubusercontent.com/UnicornsGroup/Image/main/1.jpg" alt="Image 1">
+        <img src="https://raw.githubusercontent.com/UnicornsGroup/Image/main/2.jpg" alt="Image 2">
+        <img src="https://raw.githubusercontent.com/UnicornsGroup/Image/main/3.jpg" alt="Image 3">
+    </div>
+</div>
+
+<script>
+    let index = 0;
+    const slider = document.querySelector('.slider');
+    function moveSlide() {
+        index = (index + 1) % 3;
+        slider.style.transform = `translateX(${-index * 100}%)`;
+    }
+    setInterval(moveSlide, 3000);
+</script>
+
+</body>
+</html>
